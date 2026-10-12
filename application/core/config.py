@@ -9,6 +9,7 @@ class Settings(BaseSettings):
 
     SOURCE_DIR_NAME: str = "source"
 
+    HOME_DIR: Path = Path.home()
     ROOT_DIR: Path = Path(__file__).parents[1]
     SOURCE_DIR: Path = ROOT_DIR / SOURCE_DIR_NAME
 
