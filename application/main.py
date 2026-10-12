@@ -1,14 +1,23 @@
-from tkinter import Tk
+import tkinter as tk
+
+from core.config import settings
+from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
-class App:
-    def __init__(self):
-        self.root = Tk()
+class App(MinecraftDirTKBlock):
+    def __init__(self, root: tk.Tk):
+        self.root = root
+
+        self.root.geometry(settings.window_settings.geometry)
+
+        super().__init__()
 
     def start(self):
         self.root.mainloop()
 
 
 if __name__ == "__main__":
-    app = App()
+    root = tk.Tk()
+
+    app = App(root)
     app.start()
