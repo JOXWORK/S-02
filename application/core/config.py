@@ -7,7 +7,10 @@ from pydantic_settings import BaseSettings
 
 
 class SysDirs(BaseModel):
+    MINECRAFT_DIR_NAME: str = ".minecraft"
+
     APPDATA_ROAMING_DIR: Path = Path(os.environ["APPDATA"])
+    MINECRAFT_DIR: Path = APPDATA_ROAMING_DIR / MINECRAFT_DIR_NAME
 
 
 class AppDirs(BaseModel):
@@ -21,12 +24,18 @@ class AppDirs(BaseModel):
         SOURCE_DIR: Path = Path(sys.executable).parent
 
 
+class WindowSettings(BaseModel):
+    geometry: str = "500x500"
+
+
 class Settings(BaseSettings):
     program_name: str = "I-AMInstaller"
 
     sys_dirs: SysDirs = SysDirs()
 
     app_dirs: AppDirs = AppDirs()
+
+    window_settings: WindowSettings = WindowSettings()
 
 
 settings = Settings()
