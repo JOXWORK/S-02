@@ -9,7 +9,7 @@ from pydantic_settings import BaseSettings
 class AppDirs(BaseModel):
     SOURCE_DIR_NAME: str = "source"
 
-    ROOT_DIR: Path = Path(__file__).parents[1]
+    ROOT_DIR: Path = Path(__file__).parents[2]
     SOURCE_DIR: Path = ROOT_DIR / SOURCE_DIR_NAME
 
     if getattr(sys, "frozen", False):
