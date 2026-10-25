@@ -1,10 +1,11 @@
 import tkinter as tk
 
 from core.config import settings
+from tk_blocks.install_mods import InstallModsTKBlock
 from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
-class App(MinecraftDirTKBlock):
+class App(MinecraftDirTKBlock, InstallModsTKBlock):
     def __init__(self, root: tk.Tk):
         self.root = root
 

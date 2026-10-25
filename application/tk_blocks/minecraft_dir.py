@@ -17,3 +17,5 @@ class MinecraftDirTKBlock:
         )
 
         self.minecraft_dir_entry.pack(fill=ui_settings.minecraft_dir_tkb.fill)
+
+        super().__init__()
