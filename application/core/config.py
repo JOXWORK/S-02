@@ -17,9 +17,13 @@ class AppDirs(BaseModel):
         SOURCE_DIR: Path = Path(sys.executable).parent
 
     MINECRAFT_DIR_NAME: str = ".minecraft"
+    MODS_DIR_NAME: str = "mods"
 
     APPDATA_ROAMING_DIR: Path = Path(os.environ["APPDATA"])
+    SOURCE_MODS_DIR: Path = SOURCE_DIR / MODS_DIR_NAME
+
     MINECRAFT_DIR: Path = APPDATA_ROAMING_DIR / MINECRAFT_DIR_NAME
+    MINECRAFT_MODS_DIR: Path = MINECRAFT_DIR / MODS_DIR_NAME
 
 
 class WindowSettings(BaseModel):
