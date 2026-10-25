@@ -226,3 +226,6 @@ stuff
 # Ignore non template env files
 .env.*
 !.env.*.template
+
+# Application sources
+source/
