@@ -1,0 +1,11 @@
+import tkinter as tk
+
+from .ui_config import ui_settings
+
+
+class InstallModsTKBlock:
+    def __init__(self):
+        self.root: tk.Tk
+
+        self.install_mods_button = tk.Button(self.root, text=ui_settings.install_mods_tkb.text)
+        self.install_mods_button.pack(fill=ui_settings.install_mods_tkb.fill)
