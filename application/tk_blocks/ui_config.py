@@ -2,13 +2,24 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
 
+class ButtonSettings(BaseModel):
+    text: str
+    fill: str
+
+
+class EntrySettings(BaseModel):
+    fill: str
+
+
 class MinecraftDirTKBlockSettings(BaseModel):
-    fill: str = "x"
+    MinecraftDirEntry: EntrySettings = EntrySettings(fill="x")
 
 
 class InstallModsTKBlockSettings(BaseModel):
-    text: str = "Install mods"
-    fill: str = "x"
+    InstallModsButton: ButtonSettings = ButtonSettings(
+        text="Install mods",
+        fill="x",
+    )
 
 
 class UISettings(BaseSettings):
