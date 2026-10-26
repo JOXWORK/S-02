@@ -57,7 +57,7 @@ class Settings(BaseSettings):
 
     program_name: str = "I-AMInstaller"
 
-    window_settings: WindowSettings = WindowSettings()
+    window: WindowSettings = WindowSettings()
 
     fabric_installer: FabricInstallerSettings
 

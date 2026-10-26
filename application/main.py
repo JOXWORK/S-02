@@ -9,7 +9,7 @@ class App(MinecraftDirTKBlock, InstallModsTKBlock):
     def __init__(self, root: tk.Tk):
         self.root = root
 
-        self.root.geometry(settings.window_settings.geometry)
+        self.root.geometry(settings.window.geometry)
 
         super().__init__()
 
