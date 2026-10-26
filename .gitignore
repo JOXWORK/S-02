@@ -224,7 +224,7 @@ _superuser_*.py
 stuff
 
 # Ignore non template env files
-.env.*
+.env
 !.env.*.template
 
 # Application sources
