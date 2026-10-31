@@ -16,6 +16,6 @@ class MinecraftDirTKBlock:
             textvariable=entry_value,
         )
 
-        self.minecraft_dir_entry.pack(fill=ui_settings.minecraft_dir_tkb.MinecraftDirEntry.fill)
+        self.minecraft_dir_entry.pack(fill=ui_settings.minecraft_dir.MinecraftDirEntry.fill)
 
         super().__init__()

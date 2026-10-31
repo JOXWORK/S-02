@@ -9,8 +9,8 @@ class InstallFabricLoaderTKBlock:
 
         self.install_fabric_loader_button = tk.Button(
             self.root,
-            text=ui_settings.install_fabric_loader_tkb.InstallFabricLoaderButton.text,
+            text=ui_settings.install_fabric_loader.InstallFabricLoaderButton.text,
         )
-        self.install_fabric_loader_button.pack(fill=ui_settings.install_fabric_loader_tkb.InstallFabricLoaderButton.fill)
+        self.install_fabric_loader_button.pack(fill=ui_settings.install_fabric_loader.InstallFabricLoaderButton.fill)
 
         super().__init__()
