@@ -1,11 +1,12 @@
 import tkinter as tk
 
 from core.config import settings
+from tk_blocks.install_fabric_loader import InstallFabricLoaderTKBlock
 from tk_blocks.install_mods import InstallModsTKBlock
 from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
-class App(MinecraftDirTKBlock, InstallModsTKBlock):
+class App(MinecraftDirTKBlock, InstallModsTKBlock, InstallFabricLoaderTKBlock):
     def __init__(self, root: tk.Tk):
         self.root = root
 
