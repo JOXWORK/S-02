@@ -30,11 +30,11 @@ class InstallFabricLoaderTKBlockSettings(BaseModel):
 
 
 class UISettings(BaseSettings):
-    minecraft_dir_tkb: MinecraftDirTKBlockSettings = MinecraftDirTKBlockSettings()
+    minecraft_dir: MinecraftDirTKBlockSettings = MinecraftDirTKBlockSettings()
 
-    install_mods_tkb: InstallModsTKBlockSettings = InstallModsTKBlockSettings()
+    install_mods: InstallModsTKBlockSettings = InstallModsTKBlockSettings()
 
-    install_fabric_loader_tkb: InstallFabricLoaderTKBlockSettings = InstallFabricLoaderTKBlockSettings()
+    install_fabric_loader: InstallFabricLoaderTKBlockSettings = InstallFabricLoaderTKBlockSettings()
 
 
 ui_settings = UISettings()
