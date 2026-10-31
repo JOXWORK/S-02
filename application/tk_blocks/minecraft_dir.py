@@ -9,7 +9,7 @@ class MinecraftDirTKBlock:
     def __init__(self):
         self.root: tk.Tk
 
-        entry_value = tk.StringVar(value=settings.app_dirs.MINECRAFT_DIR)
+        entry_value = tk.StringVar(value=settings.app_dirs.minecraft.MINECRAFT_DIR)
 
         self.minecraft_dir_entry = tk.Entry(
             self.root,

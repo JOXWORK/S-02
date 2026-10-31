@@ -11,7 +11,7 @@ def install_fabric_loader():
             settings.app_dirs.FABRIC_INSTALLER_JAR,
             "client",
             "-dir",
-            settings.app_dirs.MINECRAFT_DIR,
+            settings.app_dirs.minecraft.MINECRAFT_DIR,
             "-mcversion",
             settings.fabric_installer.mcversion,
             "-loader",

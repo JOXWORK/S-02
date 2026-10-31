@@ -5,7 +5,7 @@ from core.config import settings
 
 
 def install_mods_func():
-    MINECRAFT_MODS_DIR = settings.app_dirs.MINECRAFT_MODS_DIR
+    MINECRAFT_MODS_DIR = settings.app_dirs.minecraft.MINECRAFT_MODS_DIR
 
     if MINECRAFT_MODS_DIR.exists():
         rename_datetime_str = str(datetime.now())
@@ -15,5 +15,5 @@ def install_mods_func():
 
     shutil.copytree(
         settings.app_dirs.SOURCE_MODS_DIR,
-        settings.app_dirs.MINECRAFT_MODS_DIR,
+        settings.app_dirs.minecraft.MINECRAFT_MODS_DIR,
     )
