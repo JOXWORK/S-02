@@ -3,7 +3,7 @@ import subprocess
 from core.config import settings
 
 
-def install_fabric_loader():
+def install_fabric_loader_func():
     subprocess.run(
         [
             "java",
