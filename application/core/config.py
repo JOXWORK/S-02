@@ -31,6 +31,9 @@ class AppDirs(BaseModel):
     MINECRAFT_DIR: Path = APPDATA_ROAMING_DIR / MINECRAFT_DIR_NAME
     MINECRAFT_MODS_DIR: Path = MINECRAFT_DIR / MODS_DIR_NAME
 
+    FABRIC_INSTALLER_JAR_NAME: str = "fabric-installer-*.jar"
+    FABRIC_INSTALLER_JAR: Path = SOURCE_DIR / FABRIC_INSTALLER_JAR_NAME
+
 
 class WindowSettings(BaseModel):
     geometry: str = "500x500"
