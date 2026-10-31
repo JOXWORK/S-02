@@ -12,15 +12,15 @@ class AppDirs(BaseModel):
     ROOT_DIR: Path = Path(__file__).parents[2]
     SOURCE_DIR: Path = ROOT_DIR / SOURCE_DIR_NAME
 
+    if getattr(sys, "frozen", False):
+        ROOT_DIR: Path = Path(sys._MEIPASS)
+        SOURCE_DIR: Path = Path(sys.executable).parent
+
     ENV_FILE_NAME: str = ".env"
     ENV_TEMPLATE_FILE_NAME: str = ".env.template"
 
     ENV_FILE: Path = ROOT_DIR / ENV_FILE_NAME
     ENV_TEMPLATE_FILE: Path = ROOT_DIR / ENV_TEMPLATE_FILE_NAME
-
-    if getattr(sys, "frozen", False):
-        ROOT_DIR: Path = Path(sys._MEIPASS)
-        SOURCE_DIR: Path = Path(sys.executable).parent
 
     MINECRAFT_DIR_NAME: str = ".minecraft"
     MODS_DIR_NAME: str = "mods"
