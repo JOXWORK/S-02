@@ -9,14 +9,12 @@ class InstallModsTKBlock:
     def __init__(self):
         self.root: tk.Tk
 
-        self.InstallModsButton = ui_settings.install_mods_tkb.InstallModsButton
-
         self.install_mods_button = tk.Button(
             self.root,
-            text=self.InstallModsButton.text,
+            text=ui_settings.install_mods_tkb.InstallModsButton.text,
             command=install_mods_func,
         )
 
-        self.install_mods_button.pack(fill=self.InstallModsButton.fill)
+        self.install_mods_button.pack(fill=ui_settings.install_mods_tkb.InstallModsButton.fill)
 
         super().__init__()
