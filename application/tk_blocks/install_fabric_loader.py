@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from core.button_funcs.install_fabric_loader import install_fabric_loader
+from core.button_funcs.install_fabric_loader import install_fabric_loader_func
 
 from .ui_config import ui_settings
 
@@ -12,7 +12,7 @@ class InstallFabricLoaderTKBlock:
         self.install_fabric_loader_button = tk.Button(
             self.root,
             text=ui_settings.install_fabric_loader.InstallFabricLoaderButton.text,
-            command=install_fabric_loader,
+            command=install_fabric_loader_func,
         )
 
         self.install_fabric_loader_button.pack(fill=ui_settings.install_fabric_loader.InstallFabricLoaderButton.fill)

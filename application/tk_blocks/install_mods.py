@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from core.button_funcs.install_mods_func import install_mods_func
+from core.button_funcs.install_mods import install_mods_func
 
 from .ui_config import ui_settings
 
