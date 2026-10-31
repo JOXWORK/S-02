@@ -22,10 +22,19 @@ class InstallModsTKBlockSettings(BaseModel):
     )
 
 
+class InstallFabricLoaderTKBlockSettings(BaseModel):
+    InstallFabricLoaderButton: ButtonSettings = ButtonSettings(
+        text="Install Fabric Loader",
+        fill="x",
+    )
+
+
 class UISettings(BaseSettings):
     minecraft_dir_tkb: MinecraftDirTKBlockSettings = MinecraftDirTKBlockSettings()
 
     install_mods_tkb: InstallModsTKBlockSettings = InstallModsTKBlockSettings()
+
+    install_fabric_loader_tkb: InstallFabricLoaderTKBlockSettings = InstallFabricLoaderTKBlockSettings()
 
 
 ui_settings = UISettings()
