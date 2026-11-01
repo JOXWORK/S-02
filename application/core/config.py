@@ -24,7 +24,10 @@ class MinecraftDirs(BaseModel):
     APPDATA_ROAMING_DIR: Path = Path(os.environ["APPDATA"])
 
     MINECRAFT_DIR: Path = APPDATA_ROAMING_DIR / fsnames.MINECRAFT_DIR_NAME
-    MINECRAFT_MODS_DIR: Path = MINECRAFT_DIR / fsnames.MODS_DIR_NAME
+
+    @property
+    def MINECRAFT_MODS_DIR(self):
+        return self.MINECRAFT_DIR / self.fsnames.MODS_DIR_NAME
 
 
 class AppDirs(BaseModel):
@@ -61,13 +64,14 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=[
-            app_dirs.ENV_FILE,
             app_dirs.ENV_TEMPLATE_FILE,
+            app_dirs.ENV_FILE,
         ],
         env_file_encoding="UTF-8",
         case_sensitive=False,
         env_nested_delimiter="__",
         env_prefix="APPLICATION__",
+        validate_assignment=True,
     )
 
     program_name: str = "I-AMInstaller"
