@@ -24,13 +24,19 @@ class InstallModsTKBlock:
     def install_mods_func(self):
         MINECRAFT_MODS_DIR = settings.app_dirs.minecraft.MINECRAFT_MODS_DIR
 
+        OLD_MODS_DIR = None
         if MINECRAFT_MODS_DIR.exists():
             rename_datetime_str = str(datetime.now())
             restruct_datetime_str = rename_datetime_str.replace(" ", "_").replace(":", "-")
 
-            MINECRAFT_MODS_DIR.rename(f"{MINECRAFT_MODS_DIR}.old.{restruct_datetime_str}")
+            OLD_MODS_DIR = MINECRAFT_MODS_DIR.rename(f"{MINECRAFT_MODS_DIR}.old.{restruct_datetime_str}")
 
-        shutil.copytree(
-            settings.app_dirs.SOURCE_MODS_DIR,
-            settings.app_dirs.minecraft.MINECRAFT_MODS_DIR,
-        )
+        try:
+            shutil.copytree(
+                settings.app_dirs.SOURCE_MODS_DIR,
+                settings.app_dirs.minecraft.MINECRAFT_MODS_DIR,
+            )
+        except OSError:
+            if OLD_MODS_DIR:
+                shutil.rmtree(MINECRAFT_MODS_DIR)
+                OLD_MODS_DIR.rename(settings.app_dirs.minecraft.MINECRAFT_MODS_DIR)
