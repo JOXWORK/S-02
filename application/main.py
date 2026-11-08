@@ -1,6 +1,7 @@
 import tkinter as tk
 
 from core.config import settings
+from core.logger import init_logger
 from tk_blocks.install_fabric_loader import InstallFabricLoaderTKBlock
 from tk_blocks.install_mods import InstallModsTKBlock
 from tk_blocks.minecraft_dir import MinecraftDirTKBlock
@@ -8,6 +9,8 @@ from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 class App(MinecraftDirTKBlock, InstallModsTKBlock, InstallFabricLoaderTKBlock):
     def __init__(self, root: tk.Tk):
+        init_logger()
+
         self.root = root
 
         self.root.geometry(settings.window.geometry)
