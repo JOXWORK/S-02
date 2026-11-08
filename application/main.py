@@ -5,7 +5,7 @@ from core.config import settings
 from core.logger import init_logger
 
 init_logger()
-logger = logging.getLogger("App")
+logger = logging.getLogger("app")
 
 logger.info("Start app")
 
