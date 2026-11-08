@@ -4,7 +4,7 @@ from collections.abc import Callable
 from functools import wraps
 
 
-def dolog(msg: str | None = None, level: int = logging.INFO, *, custom_logger: logging.Logger) -> Callable:
+def dolog(msg: str | None = None, level: int = logging.INFO, *, custom_logger: logging.Logger | None = None) -> Callable:
     def decorator(func: Callable) -> Callable:
         logger = custom_logger or logging.getLogger(func.__module__)
         func_name = func.__name__
