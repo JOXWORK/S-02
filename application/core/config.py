@@ -62,7 +62,7 @@ class FabricInstallerSettings(BaseModel):
 
 class LoggerSettings(BaseModel):
     filename: str = "app.log"
-    level: int = logging.INFO
+    level: int = logging.DEBUG
 
 
 class Settings(BaseSettings):
