@@ -2,11 +2,13 @@ import tkinter as tk
 from pathlib import Path
 
 from core.config import MinecraftDirs, settings
+from core.logger.methods import dolog
 
 from .ui_config import ui_settings
 
 
 class MinecraftDirTKBlock:
+    @dolog()
     def __init__(self):
         self.root: tk.Tk
 
@@ -23,6 +25,7 @@ class MinecraftDirTKBlock:
 
         super().__init__()
 
+    @dolog()
     def minecraft_dir_entry_bind_enter(self, event: tk.Event):
         user_input = self.minecraft_dir_entry.get()
 
@@ -36,6 +39,7 @@ class MinecraftDirTKBlock:
 
         self.root.focus()
 
+    @dolog()
     def minecraft_dir_entry_bind_esc(self, event: tk.Event):
         self._set_entry_value_and_focus()
 

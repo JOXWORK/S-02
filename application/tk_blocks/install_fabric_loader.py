@@ -2,11 +2,13 @@ import subprocess
 import tkinter as tk
 
 from core.config import settings
+from core.logger.methods import dolog
 
 from .ui_config import ui_settings
 
 
 class InstallFabricLoaderTKBlock:
+    @dolog()
     def __init__(self):
         self.root: tk.Tk
 
@@ -20,6 +22,7 @@ class InstallFabricLoaderTKBlock:
 
         super().__init__()
 
+    @dolog()
     def install_fabric_loader_func(self):
         subprocess.run(
             [

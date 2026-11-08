@@ -3,11 +3,13 @@ import tkinter as tk
 from datetime import datetime
 
 from core.config import settings
+from core.logger.methods import dolog
 
 from .ui_config import ui_settings
 
 
 class InstallModsTKBlock:
+    @dolog()
     def __init__(self):
         self.root: tk.Tk
 
@@ -21,6 +23,7 @@ class InstallModsTKBlock:
 
         super().__init__()
 
+    @dolog()
     def install_mods_func(self):
         MINECRAFT_MODS_DIR = settings.app_dirs.minecraft.MINECRAFT_MODS_DIR
 
