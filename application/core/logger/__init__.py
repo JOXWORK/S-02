@@ -17,3 +17,6 @@ def init_logger():
 
     logger.info("-" * 50)
     logger.debug("Logger config inited")
+
+
+init_logger()
