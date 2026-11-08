@@ -13,4 +13,7 @@ def init_logger():
         format="%(asctime)s - [%(levelname)s] - %(name)s - %(message)s",
     )
 
-    logging.getLogger().debug("Logger config inited")
+    logger = logging.getLogger()
+
+    logger.info("-" * 50)
+    logger.debug("Logger config inited")
