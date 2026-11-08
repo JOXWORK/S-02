@@ -5,7 +5,7 @@ from core.config import settings
 
 def init_logger():
     console_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler(filename=settings.logger.filename)
+    file_handler = logging.FileHandler(filename=settings.logger.filename, encoding="UTF-8")
 
     logging.basicConfig(
         handlers=[console_handler, file_handler],
