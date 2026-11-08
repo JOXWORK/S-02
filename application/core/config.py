@@ -1,3 +1,4 @@
+import logging
 import os
 import sys
 from pathlib import Path
@@ -59,6 +60,11 @@ class FabricInstallerSettings(BaseModel):
     loader: str
 
 
+class LoggerSettings(BaseModel):
+    filename: str = "app.log"
+    level: int = logging.INFO
+
+
 class Settings(BaseSettings):
     app_dirs: AppDirs = AppDirs()
 
@@ -79,6 +85,8 @@ class Settings(BaseSettings):
     window: WindowSettings = WindowSettings()
 
     fabric_installer: FabricInstallerSettings
+
+    logger: LoggerSettings = LoggerSettings()
 
 
 settings = Settings()
