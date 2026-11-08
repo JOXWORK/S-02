@@ -15,7 +15,7 @@ class FSNames(BaseModel):
     MINECRAFT_DIR_NAME: str = ".minecraft"
     MODS_DIR_NAME: str = "mods"
 
-    FABRIC_INSTALLER_JAR_NAME: str = "fabric-installer-1.1.2.jar"
+    FABRIC_INSTALLER_JAR_NAME: str = "fabric-installer.jar"
 
 
 class MinecraftDirs(BaseModel):
