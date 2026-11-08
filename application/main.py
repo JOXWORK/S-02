@@ -2,11 +2,9 @@ import logging
 import tkinter as tk
 
 from core.config import settings
-from core.logger import init_logger
+from core.logger.methods import dolog
 
-init_logger()
 logger = logging.getLogger("app")
-
 logger.info("Start app")
 
 from tk_blocks.install_fabric_loader import InstallFabricLoaderTKBlock
@@ -15,9 +13,8 @@ from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
 class App(MinecraftDirTKBlock, InstallModsTKBlock, InstallFabricLoaderTKBlock):
+    @dolog(custom_logger=logger)
     def __init__(self, root: tk.Tk):
-        logger.info("Init App class")
-
         self.root = root
 
         self.root.geometry(settings.window.geometry)
