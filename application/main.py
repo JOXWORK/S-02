@@ -13,7 +13,7 @@ from tk_blocks.install_mods import InstallModsTKBlock
 from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
-@dolog(custom_logger=logger)
+@dolog(msg="Run checkups", custom_logger=logger)
 def start_checkups():
     checkups.check_source_dir_exists()
     checkups.check_source_mods_exists()
@@ -35,7 +35,6 @@ class App(MinecraftDirTKBlock, InstallModsTKBlock, InstallFabricLoaderTKBlock):
 
 
 if __name__ == "__main__":
-    logger.debug("Run checkup")
     start_checkups()
 
     logger.info("Create tk loop")
