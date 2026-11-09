@@ -7,6 +7,13 @@ class ButtonSettings(BaseModel):
     fill: str
 
 
+class WidgetSet(BaseModel):
+    text: str | None = None
+    fill: str | None = None
+    width: int | None = None
+    height: int | None = None
+
+
 class EntrySettings(BaseModel):
     fill: str
 
@@ -29,12 +36,18 @@ class InstallFabricLoaderTKBlockSettings(BaseModel):
     )
 
 
+class LogPanelTKBlockSettings(BaseModel):
+    LogPanel: WidgetSet = WidgetSet(fill="x", width=1, height=10)
+
+
 class UISettings(BaseSettings):
     minecraft_dir: MinecraftDirTKBlockSettings = MinecraftDirTKBlockSettings()
 
     install_mods: InstallModsTKBlockSettings = InstallModsTKBlockSettings()
 
     install_fabric_loader: InstallFabricLoaderTKBlockSettings = InstallFabricLoaderTKBlockSettings()
+
+    log_panel: LogPanelTKBlockSettings = LogPanelTKBlockSettings()
 
 
 ui_settings = UISettings()
