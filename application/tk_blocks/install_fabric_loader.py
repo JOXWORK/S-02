@@ -28,6 +28,7 @@ class InstallFabricLoaderTKBlock:
 
     @dolog()
     def install_fabric_loader_func(self):
+        logger.info("Start fabric loader instalation")
         with subprocess.Popen(
             [
                 "java",
@@ -48,3 +49,5 @@ class InstallFabricLoaderTKBlock:
         ) as process:
             for line in process.stdout:
                 logger.info(line.strip())
+
+        logger.info("Fabric loader instalation success")
