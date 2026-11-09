@@ -46,6 +46,12 @@ class InstallModsTKBlock:
             )
             logger.info("Mods instalation successful")
         except OSError:
-            if OLD_MODS_DIR:
+            logger.error("Mods installation got exception")
+
+            if MINECRAFT_MODS_DIR.exists():
+                logger.info("Remove new mods")
                 shutil.rmtree(MINECRAFT_MODS_DIR)
+
+            if OLD_MODS_DIR:
+                logger.info("Return old mods")
                 OLD_MODS_DIR.rename(settings.app_dirs.minecraft.MINECRAFT_MODS_DIR)
