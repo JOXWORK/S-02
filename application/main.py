@@ -10,6 +10,7 @@ logger.info("Start app")
 import core.checkups.methods as checkups
 from tk_blocks.install_fabric_loader import InstallFabricLoaderTKBlock
 from tk_blocks.install_mods import InstallModsTKBlock
+from tk_blocks.log_panel import LogPanelTKBlock
 from tk_blocks.minecraft_dir import MinecraftDirTKBlock
 
 
@@ -20,7 +21,12 @@ def start_checkups():
     checkups.check_fabric_installer_exists()
 
 
-class App(MinecraftDirTKBlock, InstallModsTKBlock, InstallFabricLoaderTKBlock):
+class App(
+    MinecraftDirTKBlock,
+    InstallModsTKBlock,
+    InstallFabricLoaderTKBlock,
+    LogPanelTKBlock,
+):
     @dolog(custom_logger=logger)
     def __init__(self, root: tk.Tk):
         self.root = root
