@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 import subprocess
 import tkinter as tk
 
@@ -24,7 +28,7 @@ class InstallFabricLoaderTKBlock:
 
     @dolog()
     def install_fabric_loader_func(self):
-        subprocess.run(
+        with subprocess.Popen(
             [
                 "java",
                 "-jar",
@@ -37,5 +41,10 @@ class InstallFabricLoaderTKBlock:
                 "-loader",
                 settings.fabric_installer.loader,
             ],
-            check=True,
-        )
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+        ) as process:
+            for line in process.stdout:
+                logger.info(line.strip())
