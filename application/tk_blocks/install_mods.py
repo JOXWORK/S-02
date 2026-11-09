@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 import shutil
 import tkinter as tk
 from datetime import datetime
@@ -35,10 +39,12 @@ class InstallModsTKBlock:
             OLD_MODS_DIR = MINECRAFT_MODS_DIR.rename(f"{MINECRAFT_MODS_DIR}.old.{restruct_datetime_str}")
 
         try:
+            logger.info("Start mods instalation")
             shutil.copytree(
                 settings.app_dirs.SOURCE_MODS_DIR,
                 settings.app_dirs.minecraft.MINECRAFT_MODS_DIR,
             )
+            logger.info("Mods instalation successful")
         except OSError:
             if OLD_MODS_DIR:
                 shutil.rmtree(MINECRAFT_MODS_DIR)
