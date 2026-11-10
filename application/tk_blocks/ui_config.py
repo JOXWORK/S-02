@@ -2,11 +2,6 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
 
-class ButtonSettings(BaseModel):
-    text: str
-    fill: str
-
-
 class WidgetSet(BaseModel):
     text: str | None = None
     fill: str | None = None
@@ -14,23 +9,19 @@ class WidgetSet(BaseModel):
     height: int | None = None
 
 
-class EntrySettings(BaseModel):
-    fill: str
-
-
 class MinecraftDirTKBlockSettings(BaseModel):
-    MinecraftDirEntry: EntrySettings = EntrySettings(fill="x")
+    MinecraftDirEntry: WidgetSet = WidgetSet(fill="x")
 
 
 class InstallModsTKBlockSettings(BaseModel):
-    InstallModsButton: ButtonSettings = ButtonSettings(
+    InstallModsButton: WidgetSet = WidgetSet(
         text="Install mods",
         fill="x",
     )
 
 
 class InstallFabricLoaderTKBlockSettings(BaseModel):
-    InstallFabricLoaderButton: ButtonSettings = ButtonSettings(
+    InstallFabricLoaderButton: WidgetSet = WidgetSet(
         text="Install Fabric Loader",
         fill="x",
     )
