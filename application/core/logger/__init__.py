@@ -1,14 +1,20 @@
 import logging
+from logging.handlers import MemoryHandler
 
 from core.config import settings
 
+memory_handler = MemoryHandler(capacity=500)
+console_handler = logging.StreamHandler()
+file_handler = logging.FileHandler(filename=settings.logger.filename, encoding="UTF-8")
+
 
 def init_logger():
-    console_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler(filename=settings.logger.filename, encoding="UTF-8")
-
     logging.basicConfig(
-        handlers=[console_handler, file_handler],
+        handlers=[
+            console_handler,
+            file_handler,
+            memory_handler,
+        ],
         level=settings.logger.level,
         format="%(asctime)s - [%(levelname)s] - %(name)s - %(message)s",
     )
