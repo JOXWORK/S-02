@@ -80,7 +80,7 @@ class Settings(BaseSettings):
         validate_assignment=True,
     )
 
-    program_name: str = "I-AMInstaller"
+    program_name: str = "Terraformer"
 
     window: WindowSettings = WindowSettings()
 
