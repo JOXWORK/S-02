@@ -50,4 +50,12 @@ class InstallFabricLoaderTKBlock:
             for line in process.stdout:
                 logger.info(line.strip())
 
+            process.wait(5)
+            if process.returncode != 0:
+                raise subprocess.CalledProcessError(
+                    returncode=process.returncode,
+                    cmd=process.args,
+                    output=process.stdout,
+                )
+
         logger.info("Fabric loader instalation success")
