@@ -28,7 +28,7 @@ class InstallFabricLoaderTKBlockSettings(BaseModel):
 
 
 class LogPanelTKBlockSettings(BaseModel):
-    LogPanel: WidgetSet = WidgetSet(fill="x", width=1, height=10)
+    LogPanel: WidgetSet = WidgetSet(fill="x", width=1, height=20)
 
 
 class UISettings(BaseSettings):
