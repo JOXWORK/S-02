@@ -3,9 +3,9 @@ from logging.handlers import MemoryHandler
 
 from core.config import settings
 
-memory_handler = MemoryHandler(capacity=500)
 console_handler = logging.StreamHandler()
 file_handler = logging.FileHandler(filename=settings.logger.filename, encoding="UTF-8")
+memory_handler = MemoryHandler(capacity=500)
 
 
 def init_logger():
