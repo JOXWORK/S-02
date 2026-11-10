@@ -46,7 +46,7 @@ class InstallModsTKBlock:
             )
             logger.info("Mods instalation successful")
         except OSError:
-            logger.error("Mods installation got exception")
+            logger.exception("Mods installation finished with exception")
 
             if MINECRAFT_MODS_DIR.exists():
                 logger.info("Remove new mods")
