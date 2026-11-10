@@ -16,7 +16,7 @@ def dolog(msg: str | None = None, level: int = logging.INFO, *, custom_logger: l
         @wraps(func)
         def wrapper(*args, **kwargs):
             try:
-                logger.info(log)
+                logger.log(msg=log, level=level)
                 result = func(*args, **kwargs)
 
                 return result
