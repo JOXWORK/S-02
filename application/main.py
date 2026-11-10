@@ -31,6 +31,7 @@ class App(
     def __init__(self, root: tk.Tk):
         self.root = root
 
+        self.root.title(settings.program_name)
         self.root.geometry(settings.window.geometry)
 
         super().__init__()
