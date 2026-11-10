@@ -31,16 +31,14 @@ class LogPanelTKBlock:
 
     def update_log_panel(self):
         try:
-            buffer_last_index = len(memory_handler.buffer) - 1
-
-            if self.log_index < buffer_last_index:
+            if self.log_index + 1 < len(memory_handler.buffer):
                 for record in memory_handler.buffer[self.log_index :]:
                     self.log_panel.insert(tk.END, f"[log] - {record.getMessage()}")
-                    self.log_panel.see(tk.END)
+                    self.log_index += 1
 
-                self.log_index = buffer_last_index
+                self.log_panel.see(tk.END)
 
-            self.root.after(100, self.update_log_panel)
+            self.root.after(250, self.update_log_panel)
         except Exception:
             logger.exception("Update log panel exception")
             sys.exit(1)
