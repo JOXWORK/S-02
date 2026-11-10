@@ -1,10 +1,15 @@
 import logging
-from logging.handlers import MemoryHandler
+from logging.handlers import MemoryHandler, RotatingFileHandler
 
 from core.config import settings
 
 console_handler = logging.StreamHandler()
-file_handler = logging.FileHandler(filename=settings.logger.filename, encoding="UTF-8")
+rotating_file_handler = RotatingFileHandler(
+    filename=settings.logger.filename,
+    maxBytes=settings.logger.rotating.max_bytes,
+    backupCount=settings.logger.rotating.backup_count,
+    encoding=settings.logger.rotating.encoding,
+)
 memory_handler = MemoryHandler(capacity=500)
 
 
@@ -12,7 +17,7 @@ def init_logger():
     logging.basicConfig(
         handlers=[
             console_handler,
-            file_handler,
+            rotating_file_handler,
             memory_handler,
         ],
         level=settings.logger.level,
