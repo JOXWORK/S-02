@@ -60,9 +60,17 @@ class FabricInstallerSettings(BaseModel):
     loader: str
 
 
+class RotatingFileHandlerSettings(BaseModel):
+    max_bytes: int = 1024 * 1024
+    backup_count: int = 2
+    encoding: str = "UTF-8"
+
+
 class LoggerSettings(BaseModel):
     filename: str = "app.log"
     level: int = logging.DEBUG
+
+    rotating: RotatingFileHandlerSettings = RotatingFileHandlerSettings()
 
 
 class Settings(BaseSettings):
